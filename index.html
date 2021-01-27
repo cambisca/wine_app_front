@@ -12,12 +12,22 @@
 
     <div id="side-carousel">
 
-        <!-- <div id="wine-card"> 
-            <img src="wine bottle url" alt="wine bottle">
+        <div id="wine-card"> 
+            <img src="" alt="wine bottle">
             <p class="name"></p>
             <p class="varietal"></p>
-        </div> -->
+        </div>
     </div>
+
+    <label for="select-occasion">Occasions:</label>
+    <select id="occasion-dropdown" name="select-occasion">
+      <option value="Me Time">Me Time</option>
+      <option value="Party">Party</option>
+      <option value="TGIFF">TGIFF</option>
+      <option value="Feast">Feast</option>
+      <option value="Day Drinking">Day Drinking</option>
+    </select>
+
 
     <div id="wine-detail">
     
@@ -37,15 +47,24 @@
         <label for="varietal">Varietal: </label>
         <input type="varietal" name="varietal" id="new-varietal" />
         <br>
-        <label for="new-review">Review: </label>
-        <textarea name="new-review" id="new-review"></textarea>
+        <label for="review">Review: </label>
+        <textarea name="review" id="review"></textarea>
         <br>
         <label for="image_url">Image URL: </label>
         <input type="image_url" name="image_url" id="new-image" />
         <br>
         <input type="submit" value="Create" />
       </form>
-   
+
+      <br>
+
+      <div id="favorites">
+          <h2>My Favorite Wines: </h2>
+          <ul id="favorites-list">
+              
+          </ul>
+
+      </div>
 </body>
 </html>
 
