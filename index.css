@@ -1,4 +1,4 @@
-/* img {
+img {
     border: none;
     border-radius: 4px;
     padding: 5px;
@@ -54,7 +54,7 @@
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    /* position: absolute; */
+    position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
@@ -90,4 +90,4 @@
     border: solid;
     box-shadow: 5px 10px;
     font-family: "Lobster";
-  } */
+  }
