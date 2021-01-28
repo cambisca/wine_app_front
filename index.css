@@ -1,6 +1,10 @@
 body {
-    /* background-color: rgb(209, 235, 245); */
+    background-color: #fcf9fc #fff snowhsl(300,33,98);
     /* background-image: linear-gradient(to top left, rgb(244, 87, 87), rgb(240, 137, 47)); */
+}
+
+* {
+    background-color: #fcf9fc #fff snowhsl(300,33,98)
 }
 
 h4 {
@@ -10,7 +14,7 @@ h4 {
 img {
 
     border: none;
-    border-radius: 4px;
+    border-radius: 10px;
     padding: 5px;
     width: 120px;
     height: 140px;
@@ -20,6 +24,7 @@ img {
 }
 
 .container {
+    background-color: #fcf9fc #fff snowhsl(300,33,98);
     position: relative;
 }
 
@@ -28,11 +33,11 @@ img {
     top: 0px;
     left: 0px;
     margin-top: 20px;
-    background-color: rgb(197, 12, 12);
     padding: 0px;
     margin-left: 1px;
     width: 15vw;
-    box-shadow: 2px 2px rgb(177, 108, 119);
+    border: dotted;
+    /* box-shadow: 2px 2px rgb(177, 108, 119); */
 }
 
 .detail-image {
@@ -73,7 +78,6 @@ img {
 }
 
 #side-carousel {
-  
         margin: auto;
         margin-left: 1px;
         margin-top: 185px;
@@ -83,14 +87,19 @@ img {
         align-items: center;
         height: 70vh;
         width: 15vw;
-        background-color:  rgb(250, 246, 250);
+        /* background-color:  rgb(250, 246, 250); */
         border: none;
         border-radius: 8px;
         font-family: "Lobster";
         left: 5px;
         padding: 0px 0px 0px;
         overflow-y: scroll;
-        box-shadow: 2px 2px rgb(177, 108, 119);
+        box-shadow: black;
+        scrollbar-color: white;
+}
+
+#side-carousel::-webkit-scrollbar {
+    display: none;
 }
 
 #wine-detail {

@@ -1,10 +1,10 @@
-const currentUser = {
-    id: 1,
-    name: "Cam",
-    username: "Cammy",
-    password: "abc123",
-    age: 21
-}
+// const currentUser = {
+//     id: 1,
+//     name: "Cam",
+//     username: "Cammy",
+//     password: "abc123",
+//     age: 21
+// }
 
 //********************** DOM selectors *************************
 const wineCard = document.querySelector('#wine-card')
@@ -19,7 +19,7 @@ const wineNameDiv = wineSpecifics.querySelector('#wine-name')
 const varietalDiv = wineSpecifics.querySelector('#varietal')
 const classificationDiv = wineSpecifics.querySelector('#classification')
 const wineYear = wineSpecifics.querySelector('#year')
-const favDiv = document.querySelector('#fav')
+const favDiv = document.querySelector('#fav-button')
 
 
 
@@ -107,8 +107,6 @@ function displayWineDetail(wineObj) {
     favoriteButton.innerHTML = "Favorite"
 
     // slap it on the dom
-    // wineDetail.append(img, favoriteButton, name, classification, year, varietal, review)
-    
     // cam add-ons below
     wineImageDiv.append(img)
     wineNameDiv.append(name)
@@ -246,4 +244,46 @@ function addOccasionSelectListener() {
     occasionDropdown.addEventListener('change', function (event) {
         selectOccasion(event.target.value);
     });
+}
+
+
+fetch(`http://localhost:3000/wines/1`)
+.then(res => res.json())
+.then((wine) => {
+  renderInitialWine(wine)
+})
+
+function renderInitialWine(wine){
+    console.log(wine)
+    const name = document.createElement('h3')
+    name.innerText = wine.name
+    // classification
+    const classification = document.createElement('h4')
+    classification.innerText = `Classification: ${wine.classification}`
+    // year
+    const year = document.createElement('h4')
+    year.innerText = `Vintage: ${wine.year}`
+    //varietal
+    const varietal = document.createElement('h4')
+    varietal.innerText = `Varietal: ${wine.varietal}`
+    // review
+    const review = document.createElement('p')
+    review.innerText = wine.review
+    // image
+    const img = document.createElement('img')
+    img.classList.add('image-display')
+    img.src = wine.image_url
+    img.alt = wine.name
+     // favorite button
+    const favoriteButton = document.createElement('button')
+    favoriteButton.innerHTML = "Favorite"
+
+    // slap it on the dom
+    // cam add-ons below
+    wineImageDiv.append(img)
+    wineNameDiv.append(name)
+    varietalDiv.append(varietal)
+    classificationDiv.append(classification)
+    wineYear.append(year)
+    favDiv.append(favoriteButton)
 }
