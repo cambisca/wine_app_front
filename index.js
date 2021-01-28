@@ -14,6 +14,7 @@ const newWineForm = document.querySelector('#new-wine')
 const favoriteWineList = document.querySelector('#favorites-list')
 const occasionDropdown = document.querySelector('#occasion-dropdown')
 
+
 getAllWines()
 
 
@@ -100,12 +101,20 @@ function displayWineDetail(wineObj) {
     wineDetail.append(img, favoriteButton, name, classification, year, varietal, review)
 
 
+
     favoriteButton.addEventListener('click', (e) => {
-        fetch(`http://localhost:3000/wines/${wineObj.id}`)
-        .then(res => res.json())
-        .then((wine) => {
-            renderWineLi(wine)
+        fetch(`http://localhost:3000/user_wine_favorites`, {
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                wine_id: wineObj.id,
+                user_id: 1,
+            })
         })
+        .then(res => res.json())
+        .then(renderNewFavorite)
     })
 }
 
@@ -169,7 +178,7 @@ function renderWineLi(wine) {
 
     // ---------> Where we left off <----------
     deleteButton.addEventListener('click', (event) => {
-        
+
         fetch(`http://localhost:3000/users/1`)
         .then(res => res.json())
         .then(console.log)
@@ -177,5 +186,34 @@ function renderWineLi(wine) {
     })
 }
 
+fetch('http://localhost:3000/user_wine_favorites')
+.then(res => res.json())
+.then((favoriteArray) => {
+    favoriteArray.forEach((favorite) => {
+        let favoriteLi = document.createElement('li')
+        favoriteLi.innerText = favorite.wine.name
+        let deleteButton = document.createElement('button')
+        deleteButton.innerText = "Delete"
+        favoriteLi.append(deleteButton)
+        favoriteWineList.append(favoriteLi)
+    })
+})
 
+function renderNewFavorite(wine){
+    let favLi = document.createElement('li')
+    favLi.innerText = wine.wine.name
+    favoriteWineList.append(favLi)
+    console.log(favLi)
+    slapDeleteButtonOnLi(favLi)
+}
 
+function slapDeleteButtonOnLi(favLi){
+    let deleteButton = document.createElement('button')
+    deleteButton.classList.add('delete-button')
+    deleteButton.innerText = "Delete"
+    favLi.append(deleteButton)
+
+    deleteButton.addEventListener('click', function(e){
+        console.log(e.target)
+    })
+}
