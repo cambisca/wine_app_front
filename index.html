@@ -6,17 +6,13 @@
     <script defer src="index.js"> </script>
     <title>The Wine App </title>
     <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
     <h1>Wine App</h1>
 
-    <div id="side-carousel">
-
-        <div id="wine-card">
-            <img src="" alt="wine bottle">
-            <p class="name"></p>
-            <p class="varietal"></p>
-        </div>
+    <div id="side-carousel" class="column">
     </div>
 
     <label for="select-occasion">Occasions</label>
@@ -28,22 +24,17 @@
       <option value="Day Drinking">Day Drinking</option>
     </select>
 
-
-    <div id="wine-detail">
-
+    <div id="wine-detail" class="column">
     </div>
 
+    <div id="favorites">
+        <h2 class="favorites-header">My Favorite Wines: </h2>
+        <!-- <img class="detail-image" src="" alt=""> -->
+        <ul id="favorites-list">
+
+        </ul>
+    </div>
       <br>
-
-      <div id="favorites">
-          <h2 class="favorites-header">My Favorite Wines: </h2>
-          <!-- <img class="detail-image" src="" alt=""> -->
-          <ul id="favorites-list">
-
-          </ul>
-
-      </div>
-
       <form id="new-wine">
         <h4>Add New Wine</h4>
         <label for="name">Name: </label>
@@ -70,10 +61,10 @@
       <br>
 
       <div id="favorites">
-          <h2>My Favorite Wines: </h2>
+          <!-- <h2>My Favorite Wines: </h2>
           <ul id="favorites-list">
 
-          </ul>
+          </ul> -->
 
       </div>
 </body>
