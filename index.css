@@ -1,5 +1,5 @@
-img {
-    border: 1px solid #ddd;
+/* img {
+    border: none;
     border-radius: 4px;
     padding: 5px;
     width: 150px;
@@ -7,6 +7,10 @@ img {
 
 
 /* .detail-image {
+    width: 125px;
+}
+
+.detail-image {
     height: 10vw;
     width: 10vw;
 }
@@ -56,12 +60,12 @@ img {
     justify-content: space-evenly;
     align-items: center;
     position: absolute;
+    /* position: absolute; */
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
     margin: auto;
-
 
     background-color: rgb(255, 255, 255);
     border-radius: 50px;
@@ -84,11 +88,10 @@ img {
     right: 0;
     margin: auto;
 
-
     background-color: rgb(255, 255, 255);
     border-radius: 50px;
     outline: black;
     border: solid;
     box-shadow: 5px 10px;
     font-family: "Lobster";
-  } */ 
+  } 
