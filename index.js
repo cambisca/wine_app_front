@@ -235,3 +235,15 @@ function slapDeleteButtonOnLi(favLi){
         console.log(e.target)
     })
 }
+
+function selectOccasion(occasions) {
+    //The filter() method creates a new array with all elements that pass the test implemented by the provided function (callback func).
+    renderAllWines(occasions.filter(console.log));
+  }
+
+function addOccasionSelectListener() {
+    let occasionDropdown = document.querySelector('#occasion-dropdown');
+    occasionDropdown.addEventListener('change', function (event) {
+        selectOccasion(event.target.value);
+    });
+}
