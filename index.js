@@ -126,11 +126,13 @@ function displayWineDetail(wineObj) {
             },
             body: JSON.stringify({
                 wine_id: wineObj.id,
-                user_id: 1,
+                user_id: 1
             })
         })
         .then(res => res.json())
-        .then(renderNewFavorite)
+        .then((favorite) => {
+            renderNewFavorite(favorite)
+        })
     })
 }
 
@@ -162,9 +164,8 @@ function renderNewWine(wine){
 
 // still need to build out
 function createNewWine(evt) {
-    evt.preventDefault()
 
-    console.log(evt.target.classification)
+    evt.preventDefault()
 
     const newWineObj = {
         name: evt.target.name.value,
@@ -174,7 +175,6 @@ function createNewWine(evt) {
         review: evt.target.review.value,
         image_url: evt.target.image_url.value
     }
-    console.log(newWineObj)
 
     postWineObj(newWineObj)
 
@@ -202,24 +202,24 @@ function renderWineLi(wine) {
     })
 }
 
-fetch('http://localhost:3000/user_wine_favorites')
-.then(res => res.json())
-.then((favoriteArray) => {
-    favoriteArray.forEach((favorite) => {
-        let favoriteLi = document.createElement('li')
-        favoriteLi.innerText = favorite.wine.name
-        let deleteButton = document.createElement('button')
-        deleteButton.innerText = "Delete"
-        favoriteLi.append(deleteButton)
-        favoriteWineList.append(favoriteLi)
-    })
-})
+// fetch('http://localhost:3000/user_wine_favorites')
+// .then(res => res.json())
+// .then((favoriteArray) => {
+//     favoriteArray.forEach((favorite) => {
+//         let favoriteLi = document.createElement('li')
+//         favoriteLi.innerText = favorite.wine.name
+//         let deleteButton = document.createElement('button')
+//         deleteButton.innerText = "Delete"
+//         favoriteLi.append(deleteButton)
+//         favoriteWineList.append(favoriteLi)
+//     })
+// })
 
 function renderNewFavorite(wine){
     let favLi = document.createElement('li')
     favLi.innerText = wine.wine.name
     favoriteWineList.append(favLi)
-    console.log(favLi)
+    favLi.dataset.id = wine.id
     slapDeleteButtonOnLi(favLi)
 }
 
@@ -229,32 +229,40 @@ function slapDeleteButtonOnLi(favLi){
     deleteButton.innerText = "Delete"
     favLi.append(deleteButton)
 
+
     deleteButton.addEventListener('click', function(e){
-        console.log(e.target)
+        fetch(`http://localhost:3000/user_wine_favorites/${favLi.dataset.id}`, {
+            method: 'DELETE'
+        })
+        .then(res => res.json())
+        .then(e.target.closest('li').remove())
     })
 }
 
-function selectOccasion(occasions) {
-    //The filter() method creates a new array with all elements that pass the test implemented by the provided function (callback func).
-    renderAllWines(occasions.filter(console.log));
-  }
 
 function addOccasionSelectListener() {
     let occasionDropdown = document.querySelector('#occasion-dropdown');
     occasionDropdown.addEventListener('change', function (event) {
-        selectOccasion(event.target.value);
+
+        fetch(`http://localhost:3000/wines/vibe/${event.target.value}`)
+        .then(res => res.json())
+        .then(('line 245', console.log))
+
+        // backend -> create custom route to handle above request
+        // controller action should filter the wines based on that param
+        // Wine.where(vibe: params[:occasion])
     });
 }
 
+addOccasionSelectListener()
 
 fetch(`http://localhost:3000/wines/1`)
 .then(res => res.json())
 .then((wine) => {
-  renderInitialWine(wine)
+    renderInitialWine(wine)
 })
 
 function renderInitialWine(wine){
-    console.log(wine)
     const name = document.createElement('h3')
     name.innerText = wine.name
     // classification
@@ -287,3 +295,21 @@ function renderInitialWine(wine){
     wineYear.append(year)
     favDiv.append(favoriteButton)
 }
+
+// function changeVarietalPreference () {
+//     e.preventDefault()
+//     let newPreference = e.target.varietal.value
+//     fetch(`http://localhost:3000/users/1`, {
+//         method: 'PATCH',
+//         headers: {
+//         'Content-Type': 'application/json'
+//         },
+//         body: JSON.stringify({
+//             varietalPreference: newPreference
+//         })
+//     })
+//     .then(res => res.json())
+//     .then(console.log)
+//     //
+
+// }
