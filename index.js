@@ -27,13 +27,15 @@ getAllWines()
 
 
 //************************* Fetch *************************
-function getAllWines(){
-    fetch("http://localhost:3000/wines")
+function getAllWines(selectedVibe) {
+    fetch(`http://localhost:3000/wines?vibe=${selectedVibe}`)
     .then(res => res.json())
     .then(renderAllWines)
 }
 
 function renderAllWines(wineArr) {
+    let imgCarousel = document.querySelector('#side-carousel')
+    imgCarousel.innerHTML = ""
     wineArr.forEach(wine => {
         createWine(wine)
     })
@@ -74,14 +76,24 @@ newWineForm.addEventListener('submit', createNewWine)
 
 // ******************* DOM Manipulation ********************
 function createWine(wine) {
-    const img = document.createElement('img')
+    let imgCarousel = document.querySelector('#side-carousel')
+    let img = document.createElement('img')
     img.src = wine.image_url
     img.alt = wine.name
     img.dataset.id = wine.id
-    document.querySelector('#side-carousel').append(img)
+    imgCarousel.append(img)
 }
 
 function displayWineDetail(wineObj) {
+
+    wineImageDiv.innerHTML = ""
+    wineNameDiv.innerHTML = ""
+    varietalDiv.innerHTML = ""
+    classificationDiv.innerHTML = ""
+    wineYear.innerHTML = ""
+    favDiv.innerHTML = ""
+
+
     // name
     const name = document.createElement('h3')
     name.innerText = wineObj.name
@@ -182,38 +194,42 @@ function createNewWine(evt) {
 
 function renderWineLi(wine) {
     const wineFavoriteLi = document.createElement('li')
-    const deleteButton = document.createElement('button')
-    deleteButton.innerText = "Delete"
+    // const deleteButton = document.createElement('button')
+    // deleteButton.innerText = "Delete"
 
     wineFavoriteLi.dataset.id = wine.id
     wineFavoriteLi.innerText = wine.name
     wineFavoriteLi.name = wine.name
 
+
     wineFavoriteLi.append(deleteButton)
     favoriteWineList.append(wineFavoriteLi)
 
-    // ---------> Where we left off <----------
-    deleteButton.addEventListener('click', (event) => {
+    slapDeleteButtonOnLi(wine)
 
-        fetch(`http://localhost:3000/users/1`)
-        .then(res => res.json())
-        .then(console.log)
-
-    })
+    // deleteButton.addEventListener('click', (e) => {
+    //     fetch(`http://localhost:3000/user_wine_favorites/${wineFavoriteLi.dataset.id}`, {
+    //         method: 'DELETE'
+    //     })
+    //     .then(res => res.json())
+    //     .then(e.target.closest('li').remove())
+    // })
 }
 
-// fetch('http://localhost:3000/user_wine_favorites')
-// .then(res => res.json())
-// .then((favoriteArray) => {
-//     favoriteArray.forEach((favorite) => {
-//         let favoriteLi = document.createElement('li')
-//         favoriteLi.innerText = favorite.wine.name
-//         let deleteButton = document.createElement('button')
-//         deleteButton.innerText = "Delete"
-//         favoriteLi.append(deleteButton)
-//         favoriteWineList.append(favoriteLi)
-//     })
-// })
+fetch('http://localhost:3000/user_wine_favorites')
+.then(res => res.json())
+.then((favoriteArray) => {
+    favoriteArray.forEach((favorite) => {
+        let favoriteLi = document.createElement('li')
+        favoriteLi.innerText = favorite.wine.name
+        favoriteLi.dataset.id = favorite.id
+        // let deleteButton = document.createElement('button')
+        // deleteButton.innerText = "Delete"
+        // favoriteLi.append(deleteButton)
+        slapDeleteButtonOnLi(favoriteLi)
+        favoriteWineList.append(favoriteLi)
+    })
+})
 
 function renderNewFavorite(wine){
     let favLi = document.createElement('li')
@@ -224,13 +240,14 @@ function renderNewFavorite(wine){
 }
 
 function slapDeleteButtonOnLi(favLi){
+
     let deleteButton = document.createElement('button')
     deleteButton.classList.add('delete-button')
     deleteButton.innerText = "Delete"
     favLi.append(deleteButton)
 
 
-    deleteButton.addEventListener('click', function(e){
+    deleteButton.addEventListener('click', (e) => {
         fetch(`http://localhost:3000/user_wine_favorites/${favLi.dataset.id}`, {
             method: 'DELETE'
         })
@@ -240,17 +257,19 @@ function slapDeleteButtonOnLi(favLi){
 }
 
 
+
 function addOccasionSelectListener() {
     let occasionDropdown = document.querySelector('#occasion-dropdown');
     occasionDropdown.addEventListener('change', function (event) {
+        getAllWines(event.target.value)
 
-        fetch(`http://localhost:3000/wines/vibe/${event.target.value}`)
-        .then(res => res.json())
-        .then(('line 245', console.log))
+        // fetch(`http://localhost:3000/wines/vibe/${event.target.value}`)
+        // .then(res => res.json())
+        // .then(('line 245', console.log))
 
         // backend -> create custom route to handle above request
         // controller action should filter the wines based on that param
-        // Wine.where(vibe: params[:occasion])
+        // Wine.where(vibe: params[:vibe])
     });
 }
 
@@ -259,42 +278,9 @@ addOccasionSelectListener()
 fetch(`http://localhost:3000/wines/1`)
 .then(res => res.json())
 .then((wine) => {
-    renderInitialWine(wine)
+    displayWineDetail(wine)
 })
 
-function renderInitialWine(wine){
-    const name = document.createElement('h3')
-    name.innerText = wine.name
-    // classification
-    const classification = document.createElement('h4')
-    classification.innerText = `Classification: ${wine.classification}`
-    // year
-    const year = document.createElement('h4')
-    year.innerText = `Vintage: ${wine.year}`
-    //varietal
-    const varietal = document.createElement('h4')
-    varietal.innerText = `Varietal: ${wine.varietal}`
-    // review
-    const review = document.createElement('p')
-    review.innerText = wine.review
-    // image
-    const img = document.createElement('img')
-    img.classList.add('image-display')
-    img.src = wine.image_url
-    img.alt = wine.name
-     // favorite button
-    const favoriteButton = document.createElement('button')
-    favoriteButton.innerHTML = "Favorite"
-
-    // slap it on the dom
-    // cam add-ons below
-    wineImageDiv.append(img)
-    wineNameDiv.append(name)
-    varietalDiv.append(varietal)
-    classificationDiv.append(classification)
-    wineYear.append(year)
-    favDiv.append(favoriteButton)
-}
 
 // function changeVarietalPreference () {
 //     e.preventDefault()

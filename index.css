@@ -92,7 +92,7 @@ img {
         border-radius: 8px;
         font-family: "Lobster";
         left: 5px;
-        padding: 0px 0px 0px;
+        padding: 100px 0px 0px;
         overflow-y: scroll;
         box-shadow: black;
         scrollbar-color: white;
@@ -243,4 +243,3 @@ img {
     background-color: #3e8e41;
   }
 
-  
