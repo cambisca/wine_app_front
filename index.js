@@ -13,6 +13,14 @@ const sideCarousel = document.querySelector('#side-carousel')
 const newWineForm = document.querySelector('#new-wine')
 const favoriteWineList = document.querySelector('#favorites-list')
 const occasionDropdown = document.querySelector('#occasion-dropdown')
+const wineSpecifics = document.querySelector('#wine-specifics')
+const wineImageDiv = document.querySelector('#wine-image')
+const wineNameDiv = wineSpecifics.querySelector('#wine-name')
+const varietalDiv = wineSpecifics.querySelector('#varietal')
+const classificationDiv = wineSpecifics.querySelector('#classification')
+const wineYear = wineSpecifics.querySelector('#year')
+const favDiv = document.querySelector('#fav')
+
 
 
 getAllWines()
@@ -75,22 +83,23 @@ function createWine(wine) {
 
 function displayWineDetail(wineObj) {
     // name
-    const name = document.createElement('p')
+    const name = document.createElement('h3')
     name.innerText = wineObj.name
     // classification
-    const classification = document.createElement('p')
-    classification.innerText = wineObj.classification
+    const classification = document.createElement('h4')
+    classification.innerText = `Classification: ${wineObj.classification}`
     // year
-    const year = document.createElement('p')
-    year.innerText = wineObj.year
+    const year = document.createElement('h4')
+    year.innerText = `Vintage: ${wineObj.year}`
     //varietal
-    const varietal = document.createElement('p')
-    varietal.innerText = wineObj.varietal
+    const varietal = document.createElement('h4')
+    varietal.innerText = `Varietal: ${wineObj.varietal}`
     // review
     const review = document.createElement('p')
     review.innerText = wineObj.review
     // image
     const img = document.createElement('img')
+    img.classList.add('image-display')
     img.src = wineObj.image_url
     img.alt = wineObj.name
      // favorite button
@@ -98,7 +107,16 @@ function displayWineDetail(wineObj) {
     favoriteButton.innerHTML = "Favorite"
 
     // slap it on the dom
-    wineDetail.append(img, favoriteButton, name, classification, year, varietal, review)
+    // wineDetail.append(img, favoriteButton, name, classification, year, varietal, review)
+    
+    // cam add-ons below
+    wineImageDiv.append(img)
+    wineNameDiv.append(name)
+    varietalDiv.append(varietal)
+    classificationDiv.append(classification)
+    wineYear.append(year)
+    favDiv.append(favoriteButton)
+
 
 
 
