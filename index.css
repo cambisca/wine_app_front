@@ -11,48 +11,48 @@
     /* text-shadow: 1px 0px rgb(84, 199, 225);; */
   /* }  */
 
-img {
+/* img {
 
     border: none;
     border-radius: 10px;
     padding: 5px;
     width: 120px;
     height: 140px;
-} 
- * {
+}  */
+ /* * {
     font-family : 'Work Sans', sans-serif;
-}
+} */
 
-.grid-container {
+/* .grid-container {
     display: grid;
     background-color: #fcf9fc #fff snowhsl(300,33,98);
     position: relative;
     grid-template-columns: 200px 1fr;
 	  grid-template-rows: 200px 1fr;
     min-height: 100vh;
-} 
-
+}  */
+/* 
 .item1 {
   display: flex;
 	justify-content: center;
 	align-items: center;
 	background-color: #ff70a6;
     
-}
+} */
 
-.item2 {
+/* .item2 {
   display: flex;
   grid-row-start: 1;
   grid-row-end: 1;
   grid-column-start: 2;
   grid-column-end: 2;
-}
+} */
 
-.item3 {
+/* .item3 {
   grid-area: 1 / 2 / 2 / 3; 
-} 
+}  */
 
-.item4 {
+/* .item4 {
   grid-row-start: 2;
   grid-row-end: 2;
   grid-column-start: 1;
@@ -75,47 +75,47 @@ img {
   overflow-y: scroll;
   box-shadow: black;
   scrollbar-color: white;
-}  
+}   */
 
-.item5 {
+/* .item5 {
   display: flex;
   grid-row-start: 2;
   grid-row-end: 2;
   grid-column-start: 2;
   grid-column-end: 2;
-}
+} */
 
-.item6 {
+/* .item6 {
   display: flex;
   grid-row-start: 2;
   grid-row-end: 2;
   grid-column-start: 3;
   grid-column-end: 3;
-}
+} */
 
-.item7 {
+/* .item7 {
   display: flex;
   grid-row-start: 3;
   grid-row-end: 3;
   grid-column-start: 1;
   grid-column-end: 1;
-}
+} */
 
-.item8 {
+/* .item8 {
   display: flex;
   grid-row-start: 3;
   grid-row-end: 3;
   grid-column-start: 2;
   grid-column-end: 2;
-}
-
+} */
+/* 
 .item9 {
   display: flex;
   grid-row-start: 3;
   grid-row-end: 3;
   grid-column-start: 3;
   grid-column-end: 3;
-}  
+}   */
 
 /* .detail-image {
     width: 125px;
@@ -126,15 +126,15 @@ img {
     width: 10vw;
 } */
 
-#wine-image {
-    background-color: rgb(209, 235, 245); */
-    display: flex;
+/* #wine-image {
+    background-color: rgb(209, 235, 245); 
+    /* display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden
     margin-top: 20px;
     margin-right: 20px;
-} 
+}   
 
 #wine-image img {
     flex-shrink: 0;
@@ -149,7 +149,7 @@ img {
     width: 200px;
     box-shadow: 2px 2px rgb(177, 108, 119);
     padding: 0px;
-} */
+} 
 
 #wine-specifics {
     display: inline-block
