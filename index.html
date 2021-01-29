@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script defer src="index.js"> </script>
     <title>The Wine App </title>
-    <!-- <link rel="stylesheet" href="index.css"> -->
-    <link rel="stylesheet" href="test.css">
+    <link rel="stylesheet" href="index.css">
+    <!-- <link rel="stylesheet" href="test.css"> -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap" rel="stylesheet">
 </head>
@@ -17,7 +17,12 @@
     </div>
 
     <div id="moon-wines">
-      <h1>Lunar Natural Wines</h1>
+      <!-- moon image below  -->
+      
+      <img src="https://www.netclipart.com/pp/m/72-723412_clipart-transparent-phases-of-the-moon-clipart-moon.png" alt="logo" class="logo">
+      <!-- experiments below-->
+      <!-- <h2 class="lunar-natural-wines">Lunar Natural Wines</h2> -->
+      <!-- experiments above  -->
     </div>
 
     <div id="nav-bar">
@@ -46,38 +51,40 @@
     </div>
 
     <div id="wine-specifics">
-      <div id="wine-name">
+      <!-- below is an adjustment  -->
+      <div id="specifics-child">
+        <div id="wine-name">
 
+        </div>
+
+        <div id="varietal">
+
+        </div>
+
+        <div id="classification">
+
+        </div>
+
+        <div id="year">
+
+        </div>
+
+        <div id="fav-button">
+
+        </div>
+
+
+        <div id= "vibe">
+
+        </div>
+
+        <form id="varietal-form">
+          <h4 id="varietal-title">Varietal Preference</h4>
+          <label for="name"></label>
+          <input type="text" name="varietal" id="new-varietal" />
+          <input type="submit" value="Update" />
+        </form>
       </div>
-
-      <div id="varietal">
-
-      </div>
-
-      <div id="classification">
-
-      </div>
-
-      <div id="year">
-
-      </div>
-
-      <div id="fav-button">
-
-      </div>
-
-
-      <div id= "vibe">
-
-      </div>
-
-      <form id="varietal-form">
-        <h4 id="varietal-title">Varietal Preference</h4>
-        <label for="name"></label>
-        <input type="text" name="varietal" id="new-varietal" />
-        <input type="submit" value="Update" />
-      </form>
-
       <!-- <div id="food-pairings">
 
       </div> -->
@@ -89,7 +96,7 @@
 
     <div id="wine-form-div">
       <form class="new-wine-form">
-        <h4>Add A New Wine</h4>
+        <h4 class="add-wine-h4">Add A New Wine</h4>
         <label for="name">Name</label>
         <input type="text" name="name" id="new-name" />
         <br>
@@ -114,7 +121,7 @@
     </div>
 
     <div id="favorites">
-      <h2>My Favorite Wines: </h2>
+      <h2 class="fav-h2">My Favorite Wines: </h2>
         <ul id="favorites-list">
         </ul>
     </div>
