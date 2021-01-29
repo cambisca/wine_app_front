@@ -1,5 +1,6 @@
 * {
     font-family : 'Work Sans', sans-serif;
+    background-color:rgb(253, 252, 251);
 }
 
 .grid-container {
@@ -8,31 +9,42 @@
     grid-template-rows: 0.3fr 1.7fr 1fr;
     gap: 0px 0px;
     grid-template-areas:
-      "icon moon-wines nav-bar"
+      "icon-div moon-wines nav-bar"
       "side-carousel wine-image wine-specifics"
-      ". new-wine-form reviews";
+      "wine-form-div . favorites";
   }
 
-  
-  .icon-div { 
-      grid-area: icon; 
+
+  .icon-div {
+      grid-area: icon-div;
       padding: 5px;
+
   }
 
-  .moon-wines { 
-      grid-area: moon-wines; 
+  #moon-wines {
+    grid-area: moon-wines;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
   }
 
-  .nav-bar { 
-    grid-area: nav-bar; 
+  #nav-bar {
+    grid-area: nav-bar;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
   }
 
   #side-carousel {
     grid-area: side-carousel;
     overflow-y: scroll;
-    height: 70vh;
-    width: 15vw;
     scrollbar-color: white;
+    height: 120vh;
+    width: 15vw;
     align-items: center;
     text-align: center;
     padding: 5px;
@@ -40,48 +52,134 @@
 
   #side-carousel::-webkit-scrollbar {
       display: none;
-  } 
+  }
 
-  #side-carousel img { 
+  #side-carousel img {
     border: none;
     border-radius: 10px;
     padding: 5px;
     width: 160px;
     height: 180px;
+    box-shadow:1px 1px red;
+    transition: transform .2s;
   }
 
-  #wine-image { 
-    grid-area: wine-image; 
+  #side-carousel img:hover {
+    /* background-color: red; */
+    transform: scale(1.1);
+  }
+
+  #wine-image {
+    grid-area: wine-image;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    /* padding-top: 10px;
-    padding-left: 10px; */
-  }  
+    padding: 0px;
 
-  #wine-specifics { 
-    grid-area: wine-specifics; 
   }
 
-  #new-wine-form { 
-    grid-area: new-wine-form; 
+  #wine-specifics {
+    grid-area: wine-specifics;
+    align-items: center;
+    text-align: center;
+    color: red;
   }
 
-  #reviews { 
-    grid-area: reviews; 
+  #wine-form-div {
+    grid-area: wine-form-div;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 17vw;
+    height: 53vh;
+    flex-direction: column;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    border: red;
+    box-shadow: red;
+    color: red;
+    border-radius: 25px;
+    padding: 25px;
+    background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
+  }
+
+  textarea {
+    border-radius: 10px;
+  }
+
+  input {
+    border-radius: 10px;
   }
 
 
-#wine-image img {
-   height: 50vh;
-   width: 40vw;
-   border-radius: 10px; 
+  #favorites {
+    grid-area: favorites;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  #wine-image img {
+    height: 80vh;
+    width: 50vw;
+    border-radius: 10px;
+  }
+
+  h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-weight: bold;
+    font-size : 40px;
+  }
+
+  ul, li {
+    list-style-type: none;
+    color: red;
+    font-weight: bold;
+  }
+
+.delete-button {
+  font-size : 40px;
+  padding: 0;
+  border: none;
+  background: none;
+
 }
 
-h1 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+#fav-button button {
+  font-size : 30px;
+  padding: 0;
+  border: none;
+  background: none;
+}
+
+.coupon {
+  border: 5px dotted black; /* Dotted border */
+  width: 60%;
+  border-radius: 15px; /* Rounded border */
+  margin: 0 auto; /* Center the coupon */
+  max-width: 500px;
+}
+
+.container {
+  padding: 2px 16px;
+  background-color: white;
+}
+
+
+.promo {
+  background: white;
+  padding: 3px;
+}
+
+.expire {
+  color: red;
 }

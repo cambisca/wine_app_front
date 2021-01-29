@@ -3,7 +3,7 @@ const currentUser = {
     name: "Dr. Hernandez",
     username: "doc",
     password: "abc123",
-    age: 21, 
+    age: 21,
     varietal: "Barbera"
 }
 
@@ -11,8 +11,8 @@ const currentUser = {
 const wineCard = document.querySelector('#wine-card')
 const wineDetail = document.querySelector('#wine-detail')
 const sideCarousel = document.querySelector('#side-carousel')
-const newWineForm = document.querySelector('#new-wine')
-const favoriteWineList = document.querySelector('#favorites-list')
+const newWineForm = document.querySelector('.new-wine-form')
+const favoriteWineList = document.querySelector('#favorites')
 const occasionDropdown = document.querySelector('#occasion-dropdown')
 const wineSpecifics = document.querySelector('#wine-specifics')
 const wineImageDiv = document.querySelector('#wine-image')
@@ -22,6 +22,7 @@ const classificationDiv = wineSpecifics.querySelector('#classification')
 const wineYear = wineSpecifics.querySelector('#year')
 const favDiv = document.querySelector('#fav-button')
 const varietalForm = document.querySelector('#varietal-form')
+const foodPairings = document.querySelector('#food-pairings')
 
 
 
@@ -119,7 +120,8 @@ function displayWineDetail(wineObj) {
     img.alt = wineObj.name
      // favorite button
     const favoriteButton = document.createElement('button')
-    favoriteButton.innerHTML = "Favorite"
+    favoriteButton.innerHTML = "❤️"
+
 
     // slap it on the dom
     // cam add-ons below
@@ -197,8 +199,7 @@ function createNewWine(evt) {
 
 function renderWineLi(wine) {
     const wineFavoriteLi = document.createElement('li')
-    // const deleteButton = document.createElement('button')
-    // deleteButton.innerText = "Delete"
+
 
     wineFavoriteLi.dataset.id = wine.id
     wineFavoriteLi.innerText = wine.name
@@ -246,7 +247,7 @@ function slapDeleteButtonOnLi(favLi){
 
     let deleteButton = document.createElement('button')
     deleteButton.classList.add('delete-button')
-    deleteButton.innerText = "Delete"
+    deleteButton.innerText = "☠"
     favLi.append(deleteButton)
 
 
@@ -296,7 +297,7 @@ function renderFirstUser() {
 renderFirstUser()
 
 function changeVarietal(userObj) {
-    
+
     let varietalName = document.createElement('p')
     let varietalTitle = document.querySelector('#varietal-title')
     varietalTitle.append(varietalName)
@@ -317,11 +318,15 @@ function changeVarietal(userObj) {
         .then((updatedUserObj) => {
             // Slap on the DOM
             varietalName.innerText = updatedUserObj.varietal
-            // Save in memory 
+            // Save in memory
             userObj.varietal = updatedUserObj.varietal
         })
     })
-}   
+}
 
 
 changeVarietal()
+
+
+
+

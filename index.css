@@ -7,7 +7,7 @@
     background-color: #fcf9fc #fff snowhsl(300,33,98)
 }
 
-/* h4 { 
+/* h4 {
     /* text-shadow: 1px 0px rgb(84, 199, 225);; */
   /* }  */
 
@@ -18,7 +18,7 @@ img {
     padding: 5px;
     width: 120px;
     height: 140px;
-} 
+}
  * {
     font-family : 'Work Sans', sans-serif;
 }
@@ -30,14 +30,14 @@ img {
     grid-template-columns: 200px 1fr;
 	  grid-template-rows: 200px 1fr;
     min-height: 100vh;
-} 
+}
 
 .item1 {
   display: flex;
 	justify-content: center;
 	align-items: center;
 	background-color: #ff70a6;
-    
+
 }
 
 .item2 {
@@ -49,8 +49,8 @@ img {
 }
 
 .item3 {
-  grid-area: 1 / 2 / 2 / 3; 
-} 
+  grid-area: 1 / 2 / 2 / 3;
+}
 
 .item4 {
   grid-row-start: 2;
@@ -75,7 +75,7 @@ img {
   overflow-y: scroll;
   box-shadow: black;
   scrollbar-color: white;
-}  
+}
 
 .item5 {
   display: flex;
@@ -115,7 +115,7 @@ img {
   grid-row-end: 3;
   grid-column-start: 3;
   grid-column-end: 3;
-}  
+}
 
 /* .detail-image {
     width: 125px;
@@ -126,7 +126,7 @@ img {
     width: 10vw;
 } */
 
-#wine-image {
+/* #wine-image {
     background-color: rgb(209, 235, 245); */
     display: flex;
     justify-content: center;
@@ -134,15 +134,16 @@ img {
     overflow: hidden
     margin-top: 20px;
     margin-right: 20px;
-} 
+} */
 
+/*
 #wine-image img {
     flex-shrink: 0;
     min-width: 50%;
     min-height: 50%;
     box-shadow: 2px 2px rgb(177, 108, 119);
     padding: 0px;
-} 
+} */
 
 /* .image-display {
     height: 200px;
@@ -150,15 +151,15 @@ img {
     box-shadow: 2px 2px rgb(177, 108, 119);
     padding: 0px;
 } */
-
+/*
 #wine-specifics {
     display: inline-block
     background-color: white;
     height: 300px;
     margin-right: 20px;
     margin-top: 20px;
-} 
-
+}
+ */
 
 
 /* #side-carousel::-webkit-scrollbar {
@@ -190,7 +191,7 @@ img {
     flex-direction: column;
     justify-conte
 }  */
-    
+
 /* .grid-item {
       background-color: rgba(255, 255, 255, 0.8);
       border: 1px solid rgba(0, 0, 0, 0.8);
@@ -278,34 +279,5 @@ img {
     cursor: pointer;
   }
 
-  .dropdown {
-    position: relative;
-    display: inline-block;
-  }
 
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-  }
 
-  .dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-  }
-
-  .dropdown-content a:hover {background-color: #f1f1f1}
-
-  .dropdown:hover .dropdown-content {
-    display: block;
-  }
-
-  .dropdown:hover .dropbtn {
-    background-color: #3e8e41;
-  }
- */
