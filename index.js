@@ -1,10 +1,11 @@
-// const currentUser = {
-//     id: 1,
-//     name: "Cam",
-//     username: "Cammy",
-//     password: "abc123",
-//     age: 21
-// }
+const currentUser = {
+    id: 1,
+    name: "Dr. Hernandez",
+    username: "doc",
+    password: "abc123",
+    age: 21, 
+    varietal: "Barbera"
+}
 
 //********************** DOM selectors *************************
 const wineCard = document.querySelector('#wine-card')
@@ -20,6 +21,8 @@ const varietalDiv = wineSpecifics.querySelector('#varietal')
 const classificationDiv = wineSpecifics.querySelector('#classification')
 const wineYear = wineSpecifics.querySelector('#year')
 const favDiv = document.querySelector('#fav-button')
+const varietalForm = document.querySelector('#varietal-form')
+
 
 
 
@@ -282,20 +285,43 @@ fetch(`http://localhost:3000/wines/1`)
 })
 
 
-// function changeVarietalPreference () {
-//     e.preventDefault()
-//     let newPreference = e.target.varietal.value
-//     fetch(`http://localhost:3000/users/1`, {
-//         method: 'PATCH',
-//         headers: {
-//         'Content-Type': 'application/json'
-//         },
-//         body: JSON.stringify({
-//             varietalPreference: newPreference
-//         })
-//     })
-//     .then(res => res.json())
-//     .then(console.log)
-//     //
+function renderFirstUser() {
+    fetch(`http://localhost:3000/users/1`)
+    .then(res => res.json())
+    .then((user) => {
+        changeVarietal(user)
+    })
+}
 
-// }
+renderFirstUser()
+
+function changeVarietal(userObj) {
+    
+    let varietalName = document.createElement('p')
+    let varietalTitle = document.querySelector('#varietal-title')
+    varietalTitle.append(varietalName)
+
+    varietalForm.addEventListener('submit', (e) => {
+        e.preventDefault()
+        let newPreference = e.target.varietal.value
+        fetch(`http://localhost:3000/users/1`, {
+            method: 'PATCH',
+            headers: {
+            'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                varietal: newPreference
+            })
+        })
+        .then(res => res.json())
+        .then((updatedUserObj) => {
+            // Slap on the DOM
+            varietalName.innerText = updatedUserObj.varietal
+            // Save in memory 
+            userObj.varietal = updatedUserObj.varietal
+        })
+    })
+}   
+
+
+changeVarietal()

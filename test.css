@@ -1,0 +1,87 @@
+* {
+    font-family : 'Work Sans', sans-serif;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 0.5fr 1.5fr 1fr;
+    grid-template-rows: 0.3fr 1.7fr 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+      "icon moon-wines nav-bar"
+      "side-carousel wine-image wine-specifics"
+      ". new-wine-form reviews";
+  }
+
+  
+  .icon-div { 
+      grid-area: icon; 
+      padding: 5px;
+  }
+
+  .moon-wines { 
+      grid-area: moon-wines; 
+  }
+
+  .nav-bar { 
+    grid-area: nav-bar; 
+  }
+
+  #side-carousel {
+    grid-area: side-carousel;
+    overflow-y: scroll;
+    height: 70vh;
+    width: 15vw;
+    scrollbar-color: white;
+    align-items: center;
+    text-align: center;
+    padding: 5px;
+  }
+
+  #side-carousel::-webkit-scrollbar {
+      display: none;
+  } 
+
+  #side-carousel img { 
+    border: none;
+    border-radius: 10px;
+    padding: 5px;
+    width: 160px;
+    height: 180px;
+  }
+
+  #wine-image { 
+    grid-area: wine-image; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    /* padding-top: 10px;
+    padding-left: 10px; */
+  }  
+
+  #wine-specifics { 
+    grid-area: wine-specifics; 
+  }
+
+  #new-wine-form { 
+    grid-area: new-wine-form; 
+  }
+
+  #reviews { 
+    grid-area: reviews; 
+  }
+
+
+#wine-image img {
+   height: 50vh;
+   width: 40vw;
+   border-radius: 10px; 
+}
+
+h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
