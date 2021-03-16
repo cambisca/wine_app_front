@@ -22,7 +22,11 @@ const classificationDiv = wineSpecifics.querySelector('#classification')
 const wineYear = wineSpecifics.querySelector('#year')
 const favDiv = document.querySelector('#fav-button')
 const varietalForm = document.querySelector('#varietal-form')
+const reviewSection = document.querySelector('#review-section')
+const reviewHeader = document.querySelector('.review-header')
 const foodPairings = document.querySelector('#food-pairings')
+
+
 
 
 
@@ -96,10 +100,14 @@ function displayWineDetail(wineObj) {
     classificationDiv.innerHTML = ""
     wineYear.innerHTML = ""
     favDiv.innerHTML = ""
+    reviewSection.innerHTML = ""
+    foodPairings.innerHTML = ""
+
 
 
     // name
     const name = document.createElement('h3')
+    name.classList.add('bold')
     name.innerText = wineObj.name
     // classification
     const classification = document.createElement('h4')
@@ -121,6 +129,16 @@ function displayWineDetail(wineObj) {
      // favorite button
     const favoriteButton = document.createElement('button')
     favoriteButton.innerHTML = "❤️"
+
+
+    let reviewText = document.createElement('h4')
+    reviewText.innerText = wineObj.review
+    
+    reviewSection.append(reviewHeader)
+    reviewSection.append(reviewText)
+    
+    renderFoodPairings(wineObj)
+
 
 
     // slap it on the dom
@@ -195,6 +213,7 @@ function createNewWine(evt) {
 
     postWineObj(newWineObj)
 
+    evt.target.reset()
 }
 
 function renderWineLi(wine) {
@@ -210,14 +229,8 @@ function renderWineLi(wine) {
     favoriteWineList.append(wineFavoriteLi)
 
     slapDeleteButtonOnLi(wine)
-
-    // deleteButton.addEventListener('click', (e) => {
-    //     fetch(`http://localhost:3000/user_wine_favorites/${wineFavoriteLi.dataset.id}`, {
-    //         method: 'DELETE'
-    //     })
-    //     .then(res => res.json())
-    //     .then(e.target.closest('li').remove())
-    // })
+   
+   
 }
 
 fetch('http://localhost:3000/user_wine_favorites')
@@ -260,20 +273,21 @@ function slapDeleteButtonOnLi(favLi){
     })
 }
 
+function renderFoodPairings(wineObj) {
+    let pairingHeader = document.createElement('h3')
+    pairingHeader.innerText = "Food Pairing"
+    let foodLi = document.createElement('p')
+    foodLi.innerText = wineObj.foods[0].pairing
+    foodPairings.append(pairingHeader)
+    foodPairings.append(foodLi)
+}
+
 
 
 function addOccasionSelectListener() {
     let occasionDropdown = document.querySelector('#occasion-dropdown');
     occasionDropdown.addEventListener('change', function (event) {
         getAllWines(event.target.value)
-
-        // fetch(`http://localhost:3000/wines/vibe/${event.target.value}`)
-        // .then(res => res.json())
-        // .then(('line 245', console.log))
-
-        // backend -> create custom route to handle above request
-        // controller action should filter the wines based on that param
-        // Wine.where(vibe: params[:vibe])
     });
 }
 
@@ -298,9 +312,8 @@ renderFirstUser()
 
 function changeVarietal(userObj) {
 
-    let varietalName = document.createElement('p')
-    let varietalTitle = document.querySelector('#varietal-title')
-    varietalTitle.append(varietalName)
+    
+    // varietalTitle.append(varietalName)
 
     varietalForm.addEventListener('submit', (e) => {
         e.preventDefault()
@@ -317,16 +330,19 @@ function changeVarietal(userObj) {
         .then(res => res.json())
         .then((updatedUserObj) => {
             // Slap on the DOM
+            let varietalName = document.createElement('p')
+            let varietalTitle = document.querySelector('#varietal-title')
             varietalName.innerText = updatedUserObj.varietal
             // Save in memory
             userObj.varietal = updatedUserObj.varietal
+            varietalTitle.append(varietalName)
+            e.target.reset()
         })
     })
 }
 
 
 changeVarietal()
-
 
 
 

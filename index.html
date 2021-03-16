@@ -1,38 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script defer src="index.js"> </script>
-    <title>The Wine App </title>
-    <link rel="stylesheet" href="index.css">
-    <!-- <link rel="stylesheet" href="test.css"> -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script defer src="index.js"> </script>
+  <title>The Wine App </title>
+  <link rel="stylesheet" href="index.css">
+  <!-- <link rel="stylesheet" href="test.css">  -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="grid-container">
-    <div class="icon-div">
+  <div class="grid-container sticky">
+    <div class="icon-div sticky">
       <img class="icon" src="https://media.tenor.com/images/8fb0e2e6808747b620a27fbb8649109c/tenor.gif" alt="Smiley face">
     </div>
 
-    <div id="moon-wines">
-      <!-- moon image below  -->
-      
-      <img src="https://www.netclipart.com/pp/m/72-723412_clipart-transparent-phases-of-the-moon-clipart-moon.png" alt="logo" class="logo">
-      <!-- experiments below-->
-      <!-- <h2 class="lunar-natural-wines">Lunar Natural Wines</h2> -->
-      <!-- experiments above  -->
+    <div id="moon-wines" class="sticky">
+     
+      Lunar Natural Winez
+      <img src="https://i.pinimg.com/564x/27/02/5c/27025ccab994de4829d8040bedc26c93.jpg" alt="logo" class="logo">
+    
     </div>
 
-    <div id="nav-bar">
+    <div id="nav-bar" class="sticky">
       <nav>
 
       </nav>
-      <label for="select-occasion">Vibe</label>
-      <br>
-      <br>
-      <select id="occasion-dropdown" name="select-occasion">
+      <p id="vibe">Vibe</p>
+      <label for="select-occasion" id= "vibe-text"></label>
+      <select id="occasion-dropdown" class="dropdown-items" name="select-occasion">
       <option value="All">All</option>
       <option value="Me time">Me time</option>
       <option value="Party">Party</option>
@@ -54,7 +51,7 @@
       <!-- below is an adjustment  -->
       <div id="specifics-child">
         <div id="wine-name">
-
+      
         </div>
 
         <div id="varietal">
@@ -73,10 +70,8 @@
 
         </div>
 
-
-        <div id= "vibe">
-
-        </div>
+        <div id="food-pairings">
+        </div> 
 
         <form id="varietal-form">
           <h4 id="varietal-title">Varietal Preference</h4>
@@ -84,10 +79,13 @@
           <input type="text" name="varietal" id="new-varietal" />
           <input type="submit" value="Update" />
         </form>
-      </div>
-      <!-- <div id="food-pairings">
 
-      </div> -->
+        <h3 class="review-header">Reviews</h3>
+        <div id="review-section">
+          
+        </div>
+
+      </div>
 
     </div>
 
@@ -121,7 +119,7 @@
     </div>
 
     <div id="favorites">
-      <h2 class="fav-h2">My Favorite Wines: </h2>
+      <h2 class="fav-h2">My Favorite Wines</h2>
         <ul id="favorites-list">
         </ul>
     </div>

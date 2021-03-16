@@ -28,14 +28,18 @@ body {
   }
 
   #moon-wines {
-    background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
+    /* background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png"); */
     grid-area: moon-wines;
-    display: flex;
+    /* display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
-
+    text-align: center; */
+    font-size: 400px;
   }
+
+ 
+
+
 
   .logo {
     height: 15vh;
@@ -264,3 +268,4 @@ h4 {
   background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
   padding-top: 0px;
 }
+

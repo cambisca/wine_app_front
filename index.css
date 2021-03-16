@@ -1,16 +1,15 @@
 * {
   font-family : 'Work Sans', sans-serif;
-  background-color:rgb(253, 252, 251);
 }
 
 body {
-  /* delete line below if you want white background  */
-background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
+
+
 }
 
 .grid-container {
-  /* delete line below if you want white background  */
-background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
+
+
   display: grid;
   grid-template-columns: 0.5fr 1.5fr 1fr;
   grid-template-rows: 0.3fr 1.7fr 1fr;
@@ -23,31 +22,31 @@ background-image: url("https://www.transparenttextures.com/patterns/45-degree-fa
 
 
 .icon-div {
-  /* delete line below if you want white background  */
-  background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
+
+  
     grid-area: icon-div;
     padding: 5px;
-
+    border-bottom: 2px solid black;
+  
 }
 
 #moon-wines {
-  /* delete line below if you want white background  */
-  background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
+ 
+  
   grid-area: moon-wines;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
   position: relative;
-
+  border-bottom: 2px solid black;
+  font-size: 80px;
 }
 
 .logo {
   height: 15vh;
   /* delete line below if you want white background  */
-  background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
   position: relative;
-  
 }
 
 .lunar-natural-wines {
@@ -57,18 +56,21 @@ background-image: url("https://www.transparenttextures.com/patterns/45-degree-fa
 
 #nav-bar {
   /* delete line below if you want white background  */
-  background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
   grid-area: nav-bar;
-  display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
+  border-bottom: 2px solid black;
+  position: relative;
+}
 
+.sticky {
+  position: sticky;
 }
 
 #side-carousel {
   /* delete line below if you want white background  */
-  background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
+  
   grid-area: side-carousel;
   overflow-y: scroll;
   scrollbar-color: white;
@@ -84,14 +86,13 @@ background-image: url("https://www.transparenttextures.com/patterns/45-degree-fa
 }
 
 #side-carousel img {
-  /* delete line below if you want white background  */
-  background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
+  
   border: none;
   border-radius: 10px;
   padding: 5px;
   width: 160px;
   height: 180px;
-  box-shadow:1px 1px red;
+  /* box-shadow:1px 1px red; */
   transition: transform .2s;
 }
 
@@ -101,32 +102,36 @@ background-image: url("https://www.transparenttextures.com/patterns/45-degree-fa
 }
 
 #wine-image {
-  /* delete line below if you want white background  */
-  background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
+  
   grid-area: wine-image;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
   padding: 0px;
-  /* box-shadow: 1px 2px rgb(245, 115, 115) */
+  
 
 }
 
+#wine-image img{
+  box-shadow: 2px 3px rgb(245, 115, 115) 
+}
+
+
 #wine-specifics {
-  /* delete line below if you want white background  */
-  background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
   grid-area: wine-specifics;
   align-items: center;
   text-align: center;
   display: flex;
   justify-content: center;
-  color: red;
+  color: black;
+}
+
+h3.bold {
+  font-weight: bold;
 }
 
 .specifics-child {
-  /* delete line below if you want white background  */
-  background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
   width: 300px;
   height: 200px;
   top: 50%;
@@ -137,10 +142,11 @@ background-image: url("https://www.transparenttextures.com/patterns/45-degree-fa
 
 #wine-form-div {
   grid-area: wine-form-div;
-  display: flex;
+  display: relative;
   justify-content: center;
   align-items: center;
   text-align: center;
+ 
   width: 17vw;
   height: 53vh;
   flex-direction: column;
@@ -151,53 +157,41 @@ background-image: url("https://www.transparenttextures.com/patterns/45-degree-fa
   margin: auto;
   border: red;
   box-shadow: red;
-  color: red;
+  color: black; 
   border-radius: 25px;
   padding: 25px;
-  /* delete line below if you want white background  */
-  background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
+ 
 }
 
 textarea {
-  /* delete line below if you want white background  */
-  background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
   border-radius: 10px;
 }
 
 input {
-  /* delete line below if you want white background  */
-  background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
   border-radius: 10px;
 }
 
 
 #favorites {
-  /* delete line below if you want white background  */
-  background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
   grid-area: favorites;
-  display: block;
+ 
   justify-content: center;
   align-items: center;
   text-align: center;
+  position: relative;
 }
 
-#varietal-form {
-  /* delete line below if you want white background  */
-  background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
-}
 
 #wine-image img {
   height: 55vh;
   width: 35vw;
   border-radius: 10px;
-  box-shadow:1px 1px red;
+
 }
 
 ul, li {
-  /* delete line below if you want white background  */
-  background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
   list-style-type: none;
-  color: red;
+  color: black;
   font-weight: bold;
 }
 
@@ -209,36 +203,7 @@ background: none;
 
 }
 
-#wine-name {
-  /* delete line below if you want white background  */
-  background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
-}
-
-#varietal {
-  /* delete line below if you want white background  */
-  background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
-
-}
-
-#classification {
-  /* delete line below if you want white background  */
-  background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
-}
-
-#year {
-  /* delete line below if you want white background  */
-  background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
-}
-
-
-#fav-button {
-  /* delete line below if you want white background  */
-background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
-}
-
 #fav-button button {
-  /* delete line below if you want white background  */
-background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
 font-size : 30px;
 padding: 0;
 border: none;
@@ -246,58 +211,42 @@ background: none;
 }
 
 .coupon {
-  /* delete line below if you want white background  */
-background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
-border: 5px dotted black; /* Dotted border */
-width: 60%;
-border-radius: 15px; /* Rounded border */
-margin: 0 auto; /* Center the coupon */
-max-width: 500px;
+  border: 5px dotted black; /* Dotted border */
+  width: 60%;
+  height: 45vh; 
+  border-radius: 15px; /* Rounded border */
+  margin: 0 auto; /* Center the coupon */
+  max-width: 500px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .container {
-  /* delete line below if you want white background  */
-background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
-padding: 2px 16px;
-background-color: white;
+  padding: 2px 16px;
+  background-color: white;
 }
 
 
 .promo {
-background: white;
-padding: 3px;
+  background: white;
+  padding: 3px;
 }
 
 .expire {
-color: red;
-}
-
-.fav-h2 {
-  /* delete line below if you want white background  */
-background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
+  color: red;
 }
 
 .new-wine-form {
-display: block;
-/* delete line below if you want white background  */
-background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
-height: 30vh;
-width: 12vw;
+  display: block;
+
+  height: 30vh;
+  width: 12vw;
 }
 
-.add-wine-h4 {
-  /* delete line below if you want white background  */
-background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
-}
-
-label {
-  /* delete line below if you want white background  */
-background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
-}
 
 h1 {
-  /* delete line below if you want white background  */
-background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
+
 display: flex;
 justify-content: center;
 align-items: center;
@@ -306,21 +255,21 @@ font-weight: bold;
 font-size : 40px;
 }
 
-h2 {
-  /* delete line below if you want white background  */
-background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
-}
-
-h3 {
-  /* delete line below if you want white background  */
-  background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
-  padding: 0;
-}
 
 h4 {
-  /* delete line below if you want white background  */
-background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
-padding-top: 0px;
+  padding-top: 0px;
 }
 
+.occasion-dropdown{
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+#vibe{
+  font-size: 30px; 
+}
 
